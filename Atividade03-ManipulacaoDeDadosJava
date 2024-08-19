@@ -1,0 +1,93 @@
+import java.text.DecimalFormat;
+import java.util.Locale;
+
+public class DadosProduto {
+
+    // String para armazenar o nome do produto
+    String nomeProduto = "Notebook Dell Inspiron"; // Nome realista
+
+    // Número decimal para armazenar o preço unitário do produto
+    double precoUnitario = 3500.00; // Preço unitário realista
+
+    // Número inteiro para armazenar a quantidade de produtos comprados
+    int quantidadeComprada = 2; // Quantidade realista
+
+    // Número decimal para armazenar a taxa de imposto sobre o produto (porcentagem)
+    double taxaImposto = 0.18; // 18% de imposto como decimal
+
+    // Número decimal para armazenar a margem de lucro desejada (porcentagem)
+    double margemLucro = 0.25; // 25% de margem de lucro como decimal
+
+    public static void main(String[] args) {
+        // Criando uma instância da classe DadosProduto
+        DadosProduto dados = new DadosProduto();
+
+        // Calculando o valor total sem impostos
+        double valorTotalSemImpostos = arredondar(dados.precoUnitario * dados.quantidadeComprada);
+
+        // Calculando o valor do imposto sobre o valor total sem impostos
+        double valorImposto = arredondar(valorTotalSemImpostos * dados.taxasImposto);
+
+        // Calculando o valor total com impostos
+        double valorTotalComImpostos = arredondar(valorTotalSemImpostos + valorImposto);
+
+        // Calculando o preço de venda necessário para alcançar a margem de lucro desejada
+        double precoVendaNecessario = arredondar(valorTotalComImpostos / (1 - dados.margemLucro));
+
+        // Criando um formatador de moeda com a classe DecimalFormat
+        DecimalFormat currencyFormat = new DecimalFormat("R$ #,##0.00");
+
+        // Exibindo os valores das variáveis e os resultados das operações
+        System.out.println("Nome do Produto: " + dados.nomeProduto);
+        System.out.println("Preço Unitário: " + currencyFormat.format(dados.precoUnitario));
+        System.out.println("Quantidade Comprada: " + dados.quantidadeComprada);
+        System.out.println("Valor Total Sem Impostos: " + currencyFormat.format(valorTotalSemImpostos));
+        System.out.println("Valor do Imposto: " + currencyFormat.format(valorImposto));
+        System.out.println("Valor Total Com Impostos: " + currencyFormat.format(valorTotalComImpostos));
+        System.out.println("Preço de Venda Necessário: " + currencyFormat.format(precoVendaNecessario));
+
+        // Criando uma mensagem final
+        String mensagemFinal = String.format(
+            "Produto: %s%nValor Total com Impostos: %s%nPreço de Venda Sugerido: %s",
+            dados.nomeProduto,
+            currencyFormat.format(valorTotalComImpostos),
+            currencyFormat.format(precoVendaNecessario)
+        );
+
+        // Exibindo a mensagem final
+        System.out.println(mensagemFinal);
+
+        // Testando diferentes valores de taxa de imposto e margem de lucro
+        testarValores(0.12, 0.30); // Teste com 12% de imposto e 30% de margem de lucro
+        testarValores(0.20, 0.15); // Teste com 20% de imposto e 15% de margem de lucro
+        testarValores(0.10, 0.40); // Teste com 10% de imposto e 40% de margem de lucro
+    }
+
+    // Método para arredondar valores para duas casas decimais
+    private static double arredondar(double valor) {
+        return Math.round(valor * 100.0) / 100.0;
+    }
+
+    // Método para testar diferentes valores de taxa de imposto e margem de lucro
+    public static void testarValores(double novaTaxaImposto, double novaMargemLucro) {
+        DadosProduto dadosTeste = new DadosProduto();
+        dadosTeste.taxasImposto = novaTaxaImposto;
+        dadosTeste.margemLucro = novaMargemLucro;
+
+        // Recalculando com os novos valores
+        double valorTotalSemImpostos = arredondar(dadosTeste.precoUnitario * dadosTeste.quantidadeComprada);
+        double valorImposto = arredondar(valorTotalSemImpostos * dadosTeste.taxasImposto);
+        double valorTotalComImpostos = arredondar(valorTotalSemImpostos + valorImposto);
+        double precoVendaNecessario = arredondar(valorTotalComImpostos / (1 - dadosTeste.margemLucro));
+
+        // Criando um formatador de moeda com a classe DecimalFormat
+        DecimalFormat currencyFormat = new DecimalFormat("R$ #,##0.00");
+
+        // Exibindo os resultados com os novos valores
+        System.out.println("\nTeste com Taxa de Imposto: " + (novaTaxaImposto * 100) + "% e Margem de Lucro: " + (novaMargemLucro * 100) + "%");
+        System.out.println("Valor Total Sem Impostos: " + currencyFormat.format(valorTotalSemImpostos));
+        System.out.println("Valor do Imposto: " + currencyFormat.format(valorImposto));
+        System.out.println("Valor Total Com Impostos: " + currencyFormat.format(valorTotalComImpostos));
+        System.out.println("Preço de Venda Necessário: " + currencyFormat.format(precoVendaNecessario));
+    }
+}
