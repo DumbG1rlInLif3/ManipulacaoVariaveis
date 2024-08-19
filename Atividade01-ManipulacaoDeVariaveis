@@ -1,0 +1,42 @@
+public class Pessoa {
+
+    // Número inteiro para a idade
+    int idade1 = 19; 
+    int idade2 = 16; 
+
+    // Número decimal para a altura em metros
+    double altura1 = 1.75; 
+    double altura2 = 1.65
+
+    // String para o nome da pessoa
+    String nome = "Jennifer"; 
+    String nome = "Leeh";
+
+
+    // Variável booleana para indicar se a pessoa é estudante
+    boolean eEstudante = true; // Exemplo de valor
+
+    public static void main(String[] args) {
+        // Criando uma instância da classe Pessoa
+        Pessoa pessoa = new Pessoa();
+
+        // Calculando a soma das idades e armazenando o resultado em uma nova variável
+        int somaIdades = pessoa.idade1 + pessoa.idade2;
+
+        // Multiplicando a altura por um fator de 2 e armazenando o resultado
+        double alturaDuplicada = pessoa.altura * 2;
+
+        // Concatenando o nome da pessoa com uma saudação
+        String saudacao = "Olá, " + pessoa.nome + "!";
+
+        // Exibindo os resultados
+        System.out.println("Idade 1: " + pessoa.idade1);
+        System.out.println("Idade 2: " + pessoa.idade2);
+        System.out.println("Soma das idades: " + somaIdades);
+        System.out.println("Altura: " + pessoa.altura);
+        System.out.println("Altura duplicada: " + alturaDuplicada);
+        System.out.println("Nome: " + pessoa.nome);
+        System.out.println("É estudante? " + pessoa.eEstudante);
+        System.out.println(saudacao);
+    }
+}
