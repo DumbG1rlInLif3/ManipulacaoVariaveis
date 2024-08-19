@@ -3,13 +3,13 @@ import java.text.DecimalFormat;
 public class DadosPessoa {
 
     // String para armazenar o nome da pessoa
-    String nome = "Ana Costa";
+    String nome = "Jennifer";
 
     // Número inteiro para armazenar a idade da pessoa
-    int idade = 28;
+    int idade = 19;
 
     // Número decimal para armazenar o salário bruto mensal da pessoa
-    double salarioBrutoMensal = 4200.75;
+    double salarioBrutoMensal = 2200.75;
 
     // Número inteiro para armazenar a quantidade de meses que a pessoa trabalhou em um ano
     int mesesTrabalhados = 10;
@@ -18,7 +18,7 @@ public class DadosPessoa {
     int quantidadeProdutosComprados = 8;
 
     // Valor fixo de desconto
-    double desconto = 2000.00;
+    double desconto = 1250.00;
 
     public static void main(String[] args) {
         // Criando uma instância da classe DadosPessoa
