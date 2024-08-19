@@ -1,0 +1,64 @@
+import java.text.DecimalFormat;
+
+public class DadosPessoa {
+
+    // String para armazenar o nome da pessoa
+    String nome = "Ana Costa";
+
+    // Número inteiro para armazenar a idade da pessoa
+    int idade = 28;
+
+    // Número decimal para armazenar o salário bruto mensal da pessoa
+    double salarioBrutoMensal = 4200.75;
+
+    // Número inteiro para armazenar a quantidade de meses que a pessoa trabalhou em um ano
+    int mesesTrabalhados = 10;
+
+    // Número inteiro para armazenar a quantidade de produtos comprados
+    int quantidadeProdutosComprados = 8;
+
+    // Valor fixo de desconto
+    double desconto = 2000.00;
+
+    public static void main(String[] args) {
+        // Criando uma instância da classe DadosPessoa
+        DadosPessoa dados = new DadosPessoa();
+
+        // Calculando o salário anual bruto
+        double salarioAnualBruto = dados.salarioBrutoMensal * dados.mesesTrabalhados;
+
+        // Calculando o salário anual líquido
+        double salarioAnualLiquido = salarioAnualBruto - dados.desconto;
+
+        // Calculando a média do valor gasto por produto
+        double valorTotalGasto = dados.salarioBrutoMensal * dados.mesesTrabalhados; // Usando o salário anual bruto como exemplo de valor total gasto
+        double mediaGastoPorProduto = valorTotalGasto / dados.quantidadeProdutosComprados;
+
+        // Formatador para moeda
+        DecimalFormat currencyFormat = new DecimalFormat("R$ #,##0.00");
+
+        // Exibindo os valores das variáveis
+        System.out.println("Nome: " + dados.nome);
+        System.out.println("Idade: " + dados.idade);
+        System.out.println("Salário Bruto Mensal: " + currencyFormat.format(dados.salarioBrutoMensal));
+        System.out.println("Meses Trabalhados: " + dados.mesesTrabalhados);
+        System.out.println("Quantidade de Produtos Comprados: " + dados.quantidadeProdutosComprados);
+        System.out.println("Valor do Desconto: " + currencyFormat.format(dados.desconto));
+        
+        // Exibindo os resultados dos cálculos
+        System.out.println("Salário Anual Bruto: " + currencyFormat.format(salarioAnualBruto));
+        System.out.println("Salário Anual Líquido: " + currencyFormat.format(salarioAnualLiquido));
+        System.out.println("Valor Total Gasto: " + currencyFormat.format(valorTotalGasto));
+        System.out.println("Média do Valor Gasto por Produto: " + currencyFormat.format(mediaGastoPorProduto));
+        
+        // Criando uma mensagem final
+        String mensagemFinal = String.format(
+            "Olá, %s!%nSeu salário anual líquido é: %s",
+            dados.nome,
+            currencyFormat.format(salarioAnualLiquido)
+        );
+
+        // Exibindo a mensagem final
+        System.out.println(mensagemFinal);
+    }
+}
