@@ -4,16 +4,16 @@ import java.util.Locale;
 public class DadosProduto {
 
     // String para armazenar o nome do produto
-    String nomeProduto = "Notebook Dell Inspiron"; // Nome realista
+    String nomeProduto = "Notebook Acer"; 
 
     // Número decimal para armazenar o preço unitário do produto
-    double precoUnitario = 3500.00; // Preço unitário realista
+    double precoUnitario = 3500.00;
 
     // Número inteiro para armazenar a quantidade de produtos comprados
-    int quantidadeComprada = 2; // Quantidade realista
+    int quantidadeComprada = 2; 
 
     // Número decimal para armazenar a taxa de imposto sobre o produto (porcentagem)
-    double taxaImposto = 0.18; // 18% de imposto como decimal
+    double taxaImposto = 0.18; // 18% de imposto como decima
 
     // Número decimal para armazenar a margem de lucro desejada (porcentagem)
     double margemLucro = 0.25; // 25% de margem de lucro como decimal
